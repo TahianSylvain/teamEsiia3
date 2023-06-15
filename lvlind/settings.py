@@ -1,13 +1,10 @@
-import json
 import os.path
 from pathlib import Path
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-with open('jsonForce.json') as secret_file:
-    config = json.load(secret_file)
-    SECRET_KEY = config['secret_key']
+SECRET_KEY = 'django-insecure-wur)=ryh9qsf!5@p$fyk!r9wf7g2&i&y@(wc$*ur95@3c%vg0b'
 
 DEBUG = True
 
