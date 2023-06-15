@@ -1,0 +1,161 @@
+{% extends 'base/header.html' %}
+{% load static %}
+
+    {% block style %}
+        <link rel="stylesheet" href="{% static 'accounts/css/registerr.css' %}">
+    {% endblock %}
+    {% block script %}
+        <script defer src="{% static 'accounts/js/registerrr.js' %}"></script>
+    {% endblock %}
+
+    {% block home_link %}
+        href="{% url 'index' %}"
+    {% endblock %}
+    {% block about_link %}
+        href="{% url 'index' %}#about"
+    {% endblock %}
+    {% block formation_link %}
+        href="{% url 'index' %}#formation"
+    {% endblock %}
+    {% block actus_link %}
+        href="{% url 'index' %}#actus"
+    {% endblock %}
+    {% block contact_link %}
+        href="{% url 'index' %}#contact"
+    {% endblock %}
+
+{% block header_content %}
+    <div class="register">
+        <h1>Register to {{ dept }}</h1>
+        <div class="progressbar">
+
+            <div class="progress"></div>
+
+            <div class="progress_step">
+                <i class="ri-file-user-line"></i>
+            </div>
+            <div class="progress_step">
+                <i class="ri-user-line"></i>
+            </div>
+            <div class="progress_step">
+                <i class="ri-visa-fill"></i>
+            </div>
+            <div class="progress_step">
+                <i class="ri-lock-2-line"></i>
+            </div>
+
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            {# form.as_p #}
+            <div class="form_step">
+                <div class="input_group">
+                    <label for="f_name">First Name</label>
+                    <input type="text" name="first_name" id="f_name">
+                </div>
+                <div class="input_group">
+                    <label for="l_name">Last Name</label>
+                    <input type="text" name="last_name" id="l_name">
+                </div>
+                <div class="input_group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" name="date_of_birth" id="dob">
+                </div>
+                <div class="input_group sexe">
+                    <div>
+                        <input type="radio" name="sex" id="{{sex_choice.0.1}}" value="{{sex_choice.0.0}}" checked>
+                        <label for="{{sex_choice.0.1}}">
+                            {{sex_choice.0.1}}
+                            <div class="radio radio_masculin">
+                                <i class="ri-checkbox-blank-circle-line"></i>
+                                <i class="ri-radio-button-line"></i>
+                            </div>
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" name="sex" id="{{sex_choice.1.1}}" value="{{sex_choice.1.0}}" >
+                        <label for="{{sex_choice.1.1}}">
+                            <div class="radio radio_feminin">
+                                <i class="ri-checkbox-blank-circle-line"></i>
+                                <i class="ri-radio-button-line"></i>
+                            </div>
+                            {{sex_choice.1.1}}
+                        </label>
+                    </div>
+                </div>
+                <div class="btn_container">
+                    <a href=""  class="btn btn-next">
+                        &nbsp;&nbsp;&nbsp;  Next &nbsp;
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="form_step">
+                <div class="input_group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div class="input_group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="btn_container">
+                    <a href="" class="btn btn-prev">
+                        <i class="ri-arrow-left-line"></i>
+                        &nbsp; Prev
+                    </a>
+                    <a href=""class="btn btn-next">
+                        Next &nbsp;
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="form_step">
+                <div class="input_group">
+                    <label for="id_visa">VISA CARD</label>
+                    <input type="number" name="visa" id="id_visa" max="9999,9999,9999" min="999,9999,9999">
+                </div>
+                <div class="input_group">
+                    <label for="id_password"> Visa Password</label>
+                    <input type="password" name="password1" id="id_password">
+                </div>
+                <div class="btn_container">
+                    <a href="" class="btn btn-prev">
+                        <i class="ri-arrow-left-line"></i>
+                        &nbsp; Prev
+                    </a>
+                    <a href=""class="btn btn-next">
+                        Next &nbsp;
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="form_step">
+                <div class="input_group">
+                    <label for="id_password1">Password</label>
+                    <input type="password" name="password1" id="id_password1">
+                </div>
+                <div class="input_group">
+                    <label for="id_password2">Password Confirmation</label>
+                    <input type="password" name="password2" id="id_password2">
+                </div>
+                <div class="btn_container">
+                    <a href="" class="btn btn-prev">
+                        <i class="ri-arrow-left-line"></i>
+                        &nbsp; Prev
+                    </a>
+                    <span class="btn btn-done">
+                        <input type="submit" id="submit" value="Done">
+                        <label for="submit">
+                            <i class="ri-check-double-line"></i>
+                        </label>
+                    </span>
+
+                </div>
+            </div>
+            
+        </form>
+    </div>
+    
+{% endblock %}

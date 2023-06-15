@@ -1,0 +1,44 @@
+
+:root {
+    --color: red;
+    --scrollbar_width: 10px;
+}
+
+/*===== CUSTOM SCROLLBAR =====*/
+::-webkit-scrollbar {
+    width: var(--scrollbar_width);
+}
+/*---- le fleche kely ery ambony @ scrollbar ty ----*/
+::-webkit-scrollbar-button:vertical:decrement {  
+    width: var(--scrollbar_width);
+    height: var(--scrollbar_width);
+    color: var(--color);
+    background-image: url(../font/RemixIcon-2.5.0/icons/System/arrow-up-s-fill.svg);
+    background-size: 20px, 20px;
+    background-position: center;
+}
+/*---- ty le eny ambany ----*/
+::-webkit-scrollbar-button:vertical:increment {  
+    width: var(--scrollbar_width);
+    height: var(--scrollbar_width);
+    background-image: url(../font/RemixIcon-2.5.0/icons/System/arrow-down-s-fill.svg);
+    background-size: 20px, 20px;
+    background-position: center;
+}
+/*---- ty le mihisakisaka ----*/
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-image: linear-gradient(to bottom, #b87ca8a0, #7e66b1a0);
+    /* background-color: var(--color); */
+    opacity: 0.5;
+}
+/* ::-webkit-scrollbar-thumb:hover {
+    opacity: 1;
+} */
+/*---- ty ndray le arrière plan ----*/
+/* ::-webkit-scrollbar-track-piece {
+    background-color: var(--white);
+} */
+/*---- zay ny scrollbal custom ----*/
+
+/* ================================== */

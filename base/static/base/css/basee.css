@@ -1,0 +1,34 @@
+
+
+:root {
+    --red: #ff1053;
+    --blue: #192675;
+    --blue_e0: #192675e0;
+    --blue_c0: #192675c0;
+    --blue_light: #2441e7;
+    --white: rgb(210,210,210);
+    --white1: #f0f0f0;
+    --right_left_padding: 70px;
+}
+@font-face {
+    font-family: primary_font;
+    src: url(../font/poppins/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: font_light;
+    src: url(../font/poppins/Poppins-ExtraLight.ttf);
+}
+@font-face {
+    font-family: font_bold;
+    src: url(../font/poppins/Poppins-Bold.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: primary_font;
+}
+html {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,398 @@
+
+.background_popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    background-color: #0b0d1cd0 /* ffffff80 */ ;
+    z-index: 10000;
+}
+.exit {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    color: var(--blue);
+    background-color: white;
+    border-radius: 50px;
+    transition: transform 0.3s;
+    z-index: 10000;
+}
+.exit:hover {
+    transform: scale(1.2);
+}
+.exit i {
+    font-size: 28px;
+}
+.log_reg_wrap {
+    display: flex;
+    transform: translateX(var(--wrapX));
+    align-items: center;
+}
+.login,
+.register {
+    width: 500px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    color: white;
+    /* background-color: white; */
+}
+
+.login.show1,
+.register.show1 {
+    display: flex;
+    animation: show1 0.5s forwards;
+}
+.login.hide2 {
+    transform: translateX(-2px);
+    animation: hide2 0.5s forwards;
+}
+.register.hide2 {
+    transform: translateX(2px);
+    animation: hide2 0.5s forwards;
+}
+
+@keyframes show1 {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes hide1 {
+    to {
+        opacity: 0;
+        transform: translateY(400px);
+    }
+}
+@keyframes hide2 {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+/* LOGIN */
+.log_reg_wrap .login {
+    z-index: 10004;
+}
+.log_reg_wrap .input_group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.log_reg_wrap p,
+.log_reg_wrap label,
+.log_reg_wrap label span {
+    font-family: font_light;
+}
+.login label {
+    display: flex;
+    align-items: center;
+}
+.login label i {
+    font-size: 1.1rem;
+}
+.log_reg_wrap p {
+    font-size: 0.8rem;
+}
+.log_reg_wrap a {
+    text-decoration: none;
+    color: #4863ff;
+    z-index: 10005;
+}
+.log_reg_wrap a[class="link"]:hover {
+    text-decoration: underline;
+}
+.login form,
+.form_step {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form_step {
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: top;
+}
+.form_step.active {
+    animation: formStepShow 0.5s forwards;
+}
+.form_step.inactive {
+    animation: formStepHide 0.5s;
+}
+@keyframes formStepShow {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes formStepHide {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+.log_reg_wrap input {
+    width: 400px;
+    height: 42px;
+    text-align: center;
+    color: black;
+    font-size: 1rem;
+    padding: 0px 20px 3px;
+    background-color: rgba(190,190,190,0.7);
+    outline: none;
+    border: none;
+    /* border-bottom: 3px solid var(--red); */
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.input_group.sexe {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+.input_group.sexe label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.input_group.sexe  div {
+    position: relative;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.log_reg_wrap input[type="radio"] {
+    visibility: hidden;
+    width: max-content;
+    height: 15px;
+}
+.sexe .ri-radio-button-line {
+    position: absolute;
+    left: 0;
+    visibility: hidden;
+}
+.sexe input[type="radio"]:checked + label .ri-checkbox-blank-circle-line{
+    visibility: hidden;
+}
+.sexe input[type="radio"]:checked + label .ri-radio-button-line {
+    visibility: visible;
+}
+.login .after::after {
+    position: relative;
+    bottom: 5px;
+    display: block;
+    content: '';
+    height: 5px;
+    background-image: linear-gradient(to right,#3452ff, var(--red));
+    border-radius: 0px 0px 10px 10px;
+}
+.login .password .after::after {
+    background-image: linear-gradient(to left,#3452ff, var(--red));
+}
+.log_reg_wrap input:hover {
+    background-color: rgb(190, 190, 190);
+}
+.log_reg_wrap input:focus {
+    background-color: rgb(210,210,210);
+}
+
+
+.login input[type="submit"] {
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 20px;
+    padding: 0;
+    background: transparent linear-gradient(to right,#3452ff, #ff1053);
+    border: none;
+    transition: 0.5s;
+}
+.login input[type="submit"]:hover,
+.register .btn:hover {
+    background-image: linear-gradient(to right,#273fc7, #c91145);
+    transition:  0.5s;
+}
+.register .btn-next:hover,
+.register .btn-done:hover {
+    background-image: linear-gradient(to left,#273fc7, #c91145);
+}
+.logtoreg {
+    text-align: center;
+}
+
+.login {
+    height: 300px;
+    justify-content: center;
+}
+.register {
+    position: relative;
+    height: 90vh;
+    justify-content: flex-start;
+    /* background-color: white; */
+}
+ .progressbar {
+    position: relative;
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 2rem 0;
+} 
+.progressbar::before,
+.progress {
+    position: absolute;
+    top: 17px;
+    left: 38px;
+    content: "";
+    width: calc(100% - 76px);
+    height: 6px;
+    /* background-color: rgb(190, 190, 190); */
+    background-image: linear-gradient(to right,#3452ff, #ff1053, #3452ff);
+    z-index: -1;
+}
+.progress {
+    position: absolute;
+    /* width: 100%; */
+    height: 6px;
+    background-color: rgb(190, 190, 190);
+    background-image: none;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 0.5s;
+
+}
+.progress_step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    /* padding-bottom: 3px; */
+    font-size: 20px;
+    /* font-weight: bold; */
+    color: var(--blue);
+    background-color: rgb(190, 190, 190);
+    border-radius: 50px;
+}
+.progress_step i {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress_step.active {
+    color: white;
+    background-color: #3452ff;
+}
+.progress_step:nth-child(odd).active {
+    background-color: #ff107c;
+}
+.register form {
+    display: flex;
+    transition: transform 0.5s;
+    z-index: 10003;
+}
+.register input {
+    padding: 0px 20px;
+    transition: all 0.3s, border 0s, transform 0s;
+}
+.register input[type="number"] {
+    padding-left: 40px;
+}
+.register input:focus {
+    transform: scaleY(1.05);
+    border: 3px solid #516bff;
+    transition: 0s;
+}
+.register .btn_container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.register .btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+    text-decoration: none;
+    text-align: center;
+    font-family: font_light;
+    color: white;
+    margin-top: 28px;
+    padding: 10px 20px;
+    background: transparent linear-gradient(to left,#3452ff, #ff1053);
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+.form_step:nth-child(1) .btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0px !important;
+}
+.register .btn-prev {
+    background: transparent linear-gradient(to right,#3452ff, #ff1053);
+}
+.register .btn-next,
+.register .btn-done {
+    justify-content: flex-end;
+}
+.regtolog {
+    position: absolute;
+    bottom: 0;
+}
+
+.register_success {
+    position: absolute;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 450px;
+    height: 200px;
+    color: var(--blue);
+    text-align:  center;
+    background-color: white;
+    border-radius: 10px;
+    z-index: 1000000;
+}
+.register_success p {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.register_success i {
+    border: 1px solid var(--blue);
+    border-radius: 50%;
+}
+.register_success a {
+    
+    width: 100px !important;
+}

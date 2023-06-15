@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>level_detail</h3> {{ department }}
+    <ul>SUBJECT:
+    {% for subject in subjects %}
+        <li>
+            <a href="{% url 'course_list_tea' department.dept_slug subject.subject_slug %}">{{ subject }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+    <p>
+        STUDENTS:{{ students }}
+    </p>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 0;
+    background-color: tan;
+}
+.course_detail_container {
+    width: 65%;
+    height: 100%;
+    background-color: cadetblue;
+}
+.video_container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: palevioletred;
+}
+.aside_container {
+    width: 35%;
+    height: 100%;
+    background-color: black;
+}

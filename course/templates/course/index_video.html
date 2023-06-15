@@ -1,0 +1,226 @@
+{% extends 'base/home.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'course/css/video_playerrrr.css' %}">
+    <link rel="stylesheet" href="{% static 'course/css/index_videooo.css' %}">
+{% endblock %}
+
+{% block script %}
+    <script defer src="{% static 'course/js/video_playerrr.js' %}"></script>
+    <script defer src="{% static 'course/js/index_videooo.js' %}"></script>
+{% endblock %}
+
+{% block back %}
+    <a href="{% url 'home' %}">
+        <i class="ri-arrow-left-line"></i>&nbsp;
+    </a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="course_detail_wrapper">
+
+        <main class="main_wrap">
+            <div class="main_wrapper">
+                <div class="video_container">
+                    <form method="post" id="attendance_form" style="display: none;">
+                        {% csrf_token %}
+                        <input type="checkbox" name="state" id="attendance_state" >
+                    </form>
+                    <div id="video_player">
+                        <video src="{{ course.0.video.url }}" id="main-video" type="video/webm" autoplay></video>
+                        <div class="progressAreaTime">0:00</div>
+                        <div class="controls">
+                            <div class="progress-area">
+                                <div class="progress-bar">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="controls-list">
+            
+                                <div class="controls-left">
+                                    <span class="icon">
+                                        <svg class="material-icons fast-rewind" width="460.73065px" height="459.8308px" viewBox="0 0 460.73065 459.8308" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="rewind" transform="matrix(-1 0 0 1 433.6823 27.0484)">
+                                                <g id="Group" transform="matrix(0.8829482 -0.4694714 0.4694714 0.8829482 0 140.84946)">
+                                                <path d="M4.38976e-06 150C1.96536e-06 67.1573 67.1573 -1.96536e-06 150 -4.38976e-06C226.062 -6.6157e-06 288.9 56.6128 298.678 130L288.582 130C278.878 62.1541 220.529 9.99999 150 10C72.6801 10 10 72.6801 10 150C10 220.529 62.1541 278.878 130 288.582L130 298.678C56.6128 288.9 6.6157e-06 226.062 4.38976e-06 150Z" id="Mask-Difference-Difference" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="40" />
+                                                </g>
+                                                <path d="M365.578 199.225L273.841 147.173L370.049 93.8441L365.578 199.225Z" id="Triangle" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+                                                <g id="10" fill="#FFFFFF" transform="matrix(-1 0 0 1 302.86212 102.86685)">
+                                                <path d="M110.462 140.142Q118.366 145.511 129.361 145.554Q145.81 145.554 155.185 133.601Q164.56 121.648 164.602 100.085Q164.645 85.8097 160.384 75.7741Q156.122 65.7386 148.217 60.4546Q140.313 55.1705 129.361 55.1705Q112.955 55.1705 103.558 66.9105Q94.1619 78.6506 94.1193 100.085Q94.0767 114.403 98.3168 124.588Q102.557 134.773 110.462 140.142ZM74.3892 143.636L74.3892 56.3636L57.0455 56.3636L35.4403 70.0426L35.4403 86.4063L55.4261 73.8778L55.9375 73.8778L55.9375 143.636L74.3892 143.636ZM141.335 122.713Q136.861 130.256 129.361 130.256Q121.861 130.256 117.365 122.713Q112.869 115.17 112.912 100.085Q112.955 85.2131 117.429 77.7557Q121.903 70.2983 129.361 70.2983Q136.818 70.2983 141.293 77.7557Q145.767 85.2131 145.767 100.085Q145.81 115.17 141.335 122.713Z" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span class="icon">
+                                        <i class="material-icons ri-play-fill play_pause play"></i>
+                                        <i class="material-icons ri-pause-fill play_pause pause"></i>
+                                    </span>
+                                    <span class="icon">
+                                        <svg class="material-icons fast-forward" width="460.73074px" height="459.83084px" viewBox="0 0 460.73074 459.83084" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="forward" transform="translate(27.0484 27.048386)">
+                                                <g id="Group" transform="matrix(0.8829482 -0.4694714 0.4694714 0.8829482 0 140.84947)">
+                                                <path d="M4.38976e-06 150C1.96536e-06 67.1573 67.1573 -1.96536e-06 150 -4.38976e-06C226.062 -6.6157e-06 288.9 56.6128 298.678 130L288.582 130C278.878 62.1541 220.529 9.99999 150 10C72.6801 10 10 72.6801 10 150C10 220.529 62.1541 278.878 130 288.582L130 298.678C56.6128 288.9 6.6157e-06 226.062 4.38976e-06 150Z" id="Mask-Difference-Difference" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="40" />
+                                                </g>
+                                                <path d="M365.578 199.225L273.841 147.173L370.049 93.8442L365.578 199.225Z" id="Triangle" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+                                                <g id="10" fill="#FFFFFF" transform="translate(102.86209 102.86687)">
+                                                <path d="M110.462 140.142Q118.366 145.511 129.361 145.554Q145.81 145.554 155.185 133.601Q164.56 121.648 164.602 100.085Q164.645 85.8097 160.384 75.7741Q156.122 65.7386 148.217 60.4546Q140.313 55.1705 129.361 55.1705Q112.955 55.1705 103.558 66.9105Q94.1619 78.6506 94.1193 100.085Q94.0767 114.403 98.3168 124.588Q102.557 134.773 110.462 140.142ZM74.3892 143.636L74.3892 56.3636L57.0455 56.3636L35.4403 70.0426L35.4403 86.4063L55.4261 73.8778L55.9375 73.8778L55.9375 143.636L74.3892 143.636ZM141.335 122.713Q136.861 130.256 129.361 130.256Q121.861 130.256 117.365 122.713Q112.869 115.17 112.912 100.085Q112.955 85.2131 117.429 77.7557Q121.903 70.2983 129.361 70.2983Q136.818 70.2983 141.293 77.7557Q145.767 85.2131 145.767 100.085Q145.81 115.17 141.335 122.713Z" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span class="icon">
+                                        <i class="material-icons ri-volume-up-fill volume"></i>
+                                        <input type="range" min="0" max="100" class="volume_range">
+                                    </span>
+                                    <div class="timer">
+                                        <span class="current">0:00</span> / <span class="duration">0:00</span>
+                                    </div>
+                                </div>
+                        
+                        
+                                <div class="controls-right">
+                                    <span class="icon">
+                                        <i class="material-icons ri-picture-in-picture-2-fill picture_in_picture"></i>
+                                    </span>
+                                    <span class="icon">
+                                        <i class="material-icons ri-fullscreen-fill fullscreen"></i>
+                                    </span>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="footer_wrap">
+                    <div class="footer_wrapper">
+                        <div class="desc_container">
+                            <div class="teacher_profile">
+                                {% if course.0.subject.teacher.pdp %}
+                                    <img src="{{ course.0.subject.teacher.pdp.url }}" alt="" width="30px">
+                                {% elif user.sex == "M" %}
+                                    <img src="{% static 'base/img/default/profile-male.jpg' %}" alt="" width="30px">
+                                {% else %}
+                                    <img src="{% static 'base/img/default/profile-female.jpg' %}" alt="" width="30px">
+                                {% endif %}
+                                <h4>{{ course.0.subject.teacher.get_full_name }}</h4>
+                            </div>
+                            <div class="course_desc">
+                                <h4>{{ course.0.subject|upper }}:&nbsp;<span>{{ course.0.title }}</span></h4>
+                                <!-- <p>{{ course.0.description }}</p> -->
+                                <!-- <a class="desc_btn">view more...</a> -->
+                                <label>{{ course.0.date_upload|date:'d M Y --- H:i' }}</label>
+                            </div>
+                        </div>
+                        <!-- <div class="desc_right_container">
+                            
+                        </div> -->
+                    </div>
+                </footer>
+            </div>
+        </main>
+
+        <aside class="aside_wrap">
+            <div class="aside_wrapper">
+                <header class="aside_header_nav">
+                    <button class="comment_btn">
+                        Comment
+                    </button>
+                    <button class="related_btn">
+                        Related Course
+                    </button>
+                    <button class="desc_btn active">
+                        Description
+                    </button>
+                </header>
+                <div class="aside_content">
+                    <div class="comment_content">
+                        <div style="overflow-x: hidden;">
+                            <div class="comment_list">
+                                {% for thread in threads %}
+                                    <div class="comment">
+                                        <div class="comment_id_img">
+                                            {% if thread.one.pdp %}
+                                                <img src="{{ thread.one.pdp.url }}" alt="" width="30px" height="30px">
+                                            {% elif user.sex == "M" %}
+                                                <img src="{% static 'base/img/default/profile-male.jpg' %}" alt="" width="30px" height="30px">
+                                            {% else %}
+                                                <img src="{% static 'base/img/default/profile-female.jpg' %}" alt="" width="30px" height="30px">
+                                            {% endif %}
+                                        </div>
+                                        <div class="comment__">
+                                            <label>{{ thread.one }}</label>
+                                            <p>{{ thread.mess }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div> 
+                        </div>
+                        <div class="comment_field">
+                            <form method="post" id="comment_form" data-url="{% url 'course_detail' subject.subject_slug course.0.slug %}">
+                                {% csrf_token %}
+                                <textarea name="mess" placeholder="Comment..." ></textarea>
+                                <!-- <input type="submit" value="Send"> -->
+                                <button type="button" id="send_comment" value="Send">
+                                    <i class="ri-send-plane-2-fill"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="related_content">
+                        <div>
+                            <div>
+                                {% for course in course_in_subject %}
+                                    <a href="{% url 'course_detail' course.subject.subject_slug course.slug %}">
+                                        <h5>{{ course.title }}</h5>
+                                        <span>{{ course.date_upload.date|date:'d M Y' }}</span>
+                                        <span>{{ course.date_upload.time|date:'H:i' }}</span>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="desc_content active">
+                        <div>
+                            <div>
+                                <div class="teacher_profile">
+                                    {% if course.0.subject.teacher.pdp %}
+                                        <img src="{{ course.0.subject.teacher.pdp.url }}" alt="" width="30px">
+                                    {% elif user.sex == "M" %}
+                                        <img src="{% static 'base/img/default/profile-male.jpg' %}" alt="" width="30px">
+                                    {% else %}
+                                        <img src="{% static 'base/img/default/profile-female.jpg' %}" alt="" width="30px">
+                                    {% endif %}
+                                    <h4>{{ course.0.subject.teacher.get_full_name }}</h4>
+                                </div>
+                                <div class="course_desc">
+                                    <h4>{{ course.0.subject|upper }}:&nbsp;<span>{{ course.0.title }}</span></h4>
+                                    <p>{{ course.0.description }}</p>
+                                    <p>{{ course.0.date_upload|date:"d M Y --- H:i" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </aside>
+
+    </div>
+
+    <!-- <div class="container"> -->
+       
+        <!-- <div class="content-commentaire">
+            <div class="commentaire">
+                
+            </div>
+        </div> -->
+    <!-- </div> -->
+
+{% endblock %}
+    
+
+
+    <!-- </body>
+</html> -->

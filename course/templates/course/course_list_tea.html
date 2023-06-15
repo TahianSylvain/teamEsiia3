@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    COURSE_LIST_TEA
+    <p>Subject:&nbsp;<span>{{ subject }}</span></p>
+    <p>Prof:&nbsp;<span>{{ subject.teacher }}</span></p>
+    Courses:
+    <ul>
+    {% for course in courses %}
+        <li>
+            <a href="{# url 'course_detail' subject.subject_slug course.slug #}">{{ course }}</a>
+            <span>{{ course.date_upload|date:"d-M-Y H:i" }}</span>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <a href="{% url 'create_course' department.dept_slug subject.subject_slug %}">New course</a>
+
+</body>
+</html>

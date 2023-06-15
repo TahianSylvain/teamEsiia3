@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LevelMind | Index</title>
+
+    <link rel="shortcut icon" href="{% static 'base/img/lvlind9.webp' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'base/css/basee.css' %}">
+    <link rel="stylesheet" href="{% static 'base/css/headerrr.css' %}">
+    <!--<link rel="stylesheet" href="css/index_resp.css">-->
+    <link rel="stylesheet" href="{% static 'base/css/carouse.css' %}">
+    <link rel="stylesheet" href="{% static 'base/font/RemixIcon-2.5.0/fonts/remixicon.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'base/css/login_register.css' %}"> -->
+    {% block style %}{% endblock %}
+
+    <script defer src="{% static 'base/js/carousel.js' %}"></script>
+    <script defer src="{% static 'base/js/indexxx.js' %}"></script>
+    <!-- <script defer src="{% static 'base/js/login_registerr.js' %}"></script> -->
+    {% block script %}{% endblock %}
+
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <div class="logo">
+                <div class="logo_img">
+                    <img src="{% static 'base/img/lvlind10.webp' %}" width="40px" height="40px" alt="">
+                </div>
+                <div class="logo_name">
+                    Level<span>Mind</span>
+                </div>
+            </div>
+            <nav>
+                <div class="link">
+                    <a {% block home_link %}href="#"{% endblock %}> <i class="ri-home-4-line"></i> Accueil</a>
+                    <a {% block about_link %}href="#about"{% endblock %}> <i class="ri-information-line"></i> A Propos</a>
+                    <a {% block formation_link %}href="#formation"{% endblock %}> <i class="ri-bar-chart-2-line"></i> Formations</a>
+                    <a {% block actus_link %}href="#actus"{% endblock %}> <i class="ri-mail-line"></i>Actualité</a>
+                    <a {% block contact_link %}href="#contact"{% endblock %}> <i class="ri-mail-line"></i> Contact</a>
+                </div>
+                <div class="topbar_btn">
+                    <a href="{% url 'home' %}"> <i class="ri-user-line"></i> Join My Class</a>
+                </div>
+            </nav>
+            <div class="menu_btn_container">
+                <div class="menu_btn">
+                </div>
+            </div>
+        </div>
+
+        <div class="header_container">
+            <div class="cover"></div>
+            <div class="slide">
+                <div class="header_content1"></div>
+                <div class="header_content2"></div>
+                <div class="header_content3"></div>  
+            </div>
+            <div class="content_desc">
+                {% block header_content %}
+                    <h1>Online learning with 
+                        <span class=".span" style="width: max-content; height: max-content;">
+                            <svg id="lvlind_svg" width="300px" height="50px" viewBox="0 0 546 84" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                                <g stroke="#fff" stroke-width="2" id="LevelMind" fill="#000000" fill-opacity="0">
+                                    <path d="M374.808 20.284Q378.168 23.26 383.736 23.26Q389.208 23.26 392.568 20.284Q395.928 17.308 395.928 12.796Q395.928 8.188 392.568 5.164Q389.208 2.14 383.736 2.13999Q378.168 2.13999 374.808 5.164Q371.448 8.188 371.448 12.796Q371.448 17.308 374.808 20.284ZM272.088 81.724L272.088 10.684L250.776 10.684L250.776 81.724L272.088 81.724ZM470.856 39.82Q467.928 46.108 467.928 54.652Q467.928 63.196 470.856 69.484Q473.784 75.772 478.872 79.084Q483.96 82.396 490.296 82.396Q495.576 82.396 499.368 80.236Q503.16 78.076 505.176 74.332L505.176 81.724L526.488 81.724L526.488 10.684L505.176 10.684L505.176 34.972Q503.16 31.228 499.368 29.068Q495.576 26.908 490.296 26.908Q483.96 26.908 478.872 30.22Q473.784 33.532 470.856 39.82ZM40.824 65.596L61.368 65.596L61.368 81.724L19.512 81.724L19.512 13.756L40.824 13.756L40.824 65.596ZM363.384 13.756L363.384 81.724L342.168 81.724L342.168 47.836L331.704 81.724L313.464 81.724L303 47.836L303 81.724L281.688 81.724L281.688 13.756L307.8 13.756L322.776 54.556L337.368 13.756L363.384 13.756ZM120.504 54.172Q120.504 56.38 120.216 58.396L85.944 58.396Q86.424 65.404 91.8 65.404Q95.256 65.404 96.792 62.236L119.352 62.236Q118.2 67.996 114.504 72.556Q110.808 77.116 105.192 79.756Q99.576 82.396 92.856 82.396Q84.792 82.396 78.504 79.036Q72.216 75.676 68.712 69.388Q65.208 63.1 65.208 54.652Q65.208 46.204 68.712 39.916Q72.216 33.628 78.504 30.268Q84.792 26.908 92.856 26.908Q100.92 26.908 107.208 30.22Q113.496 33.532 117 39.676Q120.504 45.82 120.504 54.172ZM244.056 54.172Q244.056 56.38 243.768 58.396L209.496 58.396Q209.976 65.404 215.352 65.404Q218.808 65.404 220.344 62.236L242.904 62.236Q241.752 67.996 238.056 72.556Q234.36 77.116 228.744 79.756Q223.128 82.396 216.408 82.396Q208.344 82.396 202.056 79.036Q195.768 75.676 192.264 69.388Q188.76 63.1 188.76 54.652Q188.76 46.204 192.264 39.916Q195.768 33.628 202.056 30.268Q208.344 26.908 216.408 26.908Q224.472 26.908 230.76 30.22Q237.048 33.532 240.552 39.676Q244.056 45.82 244.056 54.172ZM441.816 27.196Q451.128 27.196 456.36 33.436Q461.592 39.676 461.592 50.332L461.592 81.724L440.376 81.724L440.376 53.02Q440.376 49.18 438.312 46.924Q436.248 44.668 432.792 44.668Q429.24 44.668 427.224 46.924Q425.208 49.18 425.208 53.02L425.208 81.724L403.896 81.724L403.896 27.58L425.208 27.58L425.208 35.836Q427.704 31.996 431.88 29.596Q436.056 27.196 441.816 27.196ZM163.32 27.58L154.68 61.468L145.944 27.58L123.288 27.58L141.336 81.724L167.928 81.724L185.976 27.58L163.32 27.58ZM372.984 81.724L394.296 81.724L394.296 27.58L372.984 27.58L372.984 81.724ZM98.904 49.084Q98.904 46.396 97.176 45.004Q95.448 43.612 92.856 43.612Q87.192 43.612 86.232 49.084L98.904 49.084ZM222.456 49.084Q222.456 46.396 220.728 45.004Q219 43.612 216.408 43.612Q210.744 43.612 209.784 49.084L222.456 49.084ZM503.064 47.932Q505.272 50.332 505.272 54.652Q505.272 58.972 503.064 61.372Q500.856 63.772 497.4 63.772Q493.944 63.772 491.736 61.372Q489.528 58.972 489.528 54.652Q489.528 50.332 491.736 47.932Q493.944 45.532 497.4 45.532Q500.856 45.532 503.064 47.932Z" />
+                                </g>
+                            </svg>
+                        </span>
+                    </h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem doloremque cumque perspiciatis id quos veritatis.</p>
+                    <a class="get_started" href="#formation">Get Started</a>
+                {% endblock %}
+                <div class="header_wave">
+                    <div class="wave wave1"></div>
+                    <div class="wave wave2"></div>
+                    <div class="wave wave3"></div>
+                </div>
+                
+            </div>
+        </div>
+
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+
+    
+    <!-- <footer class="footer" id="contact">
+
+        <div class="footer_wave">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4><i class="ri-chat-3-line"></i><span>&nbsp;Talk to us</span></h4>
+                    <ul>
+                        <li><a href="#">E-Mail</a>
+                        <p>levelmind@email.com</p></li>
+                        <li><a href="#">WhatsApp</a>
+                        <p>+261 00 00 000 00 - @lvlmind</p></li>
+                        <li><a href="#">Messenger</a>
+                        <p>LevelMind</p></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="ri-send-plane-line"></i><span>&nbsp;Write us your point</span><h4>
+                    <ul>
+                        <li><input type="text" placeholder=" Name"></li>
+                        <li><input type="text" placeholder=" Téléphone"></li>
+                        <li><input type="text" placeholder=" E-Mail"></li>
+                        <li><textarea name="sms" id="sms" cols="50" rows="5" placeholder="Your point ..."></textarea></li>
+                        <li><input type="submit" value="Submit"></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="ri-link-m"></i><span>&nbsp;Keep connected</span></h4>
+                    <div class="social-links">
+                        <a href="#">
+                            <i class="ri-facebook-line"></i>
+                        </a>
+                        <a href="#">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#"><i class="ri-github-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row copyright">
+            <p><i class="ri-copyright-line"></i>2022&nbsp;&nbsp;levelmind.org</p>
+            <p>
+                <a href="">Privacy Policy</a>
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <a href="">Terms&nbsp;&nbsp;&&nbsp;&nbsp;Condition</a>
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <a href="">FAQ</a></p>
+        </div>
+
+    </footer> -->
+
+    
+</body>
+</html>

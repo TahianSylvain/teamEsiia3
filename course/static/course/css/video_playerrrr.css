@@ -1,0 +1,267 @@
+
+
+@font-face {
+    font-family: primary_font;
+    src: url(../font/poppins/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: font_light;
+    src: url(../font/poppins/Poppins-ExtraLight.ttf);
+}
+@font-face {
+    font-family: font_bold;
+    src: url(../font/poppins/Poppins-Bold.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: primary_font;
+}
+
+.material-icons{
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body{
+    /* background-color: rgb(225, 247, 240); */
+    /* background-color: rgb(156, 60, 60); */
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.7%;
+}
+
+.video_container{
+    position: relative;
+    width: 100% ;
+    /* height: 100%; */
+    /* padding-right: 480px; */
+    /* display: flex; */
+    /* padding-top: 60px; */
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+}
+
+/* video player styling */
+.video_container #video_player{
+    position: relative;
+    /* width: 700px; */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* height: 200px; */
+    border-radius: 5px;
+    /* overflow: hidden; */
+    /* box-shadow: 0 0 5px rgba(2, 2, 2, 0.24); */
+}
+
+.video_container #video_player #main-video{
+    position: relative;
+    width: 100%;
+    /* height: 100%; */
+    outline: none;
+    border-radius: 5px;
+}
+
+#video_player .progressAreaTime{
+    position: absolute;
+    left: var(--x);
+    transform: translate(-50%);
+    bottom: 60px;
+    padding: 5px 10px;
+    min-width: 50px;
+    color: #fff;
+    font-size: 14px;
+    white-space: nowrap;
+    background: #002333;
+    border-radius: 5px;
+    z-index: 1;
+    display: none;
+}
+
+#video_player .progressAreaTime::before{
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: 50%;
+    transform: translate(-60%, -50%) rotate(45deg);
+    background: #002333;
+    width: 28px;
+    height: 18px;
+    z-index: -2;
+}
+
+.video_container #video_player .controls{
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background: rgb(0 0 0 / 71%);
+    /* box-shadow: 0 0 40px 10px rgb(0 0 0 / 25%); */
+    border-radius: 5px;
+    z-index: 3;
+    transform: translateY(0);
+    transition: 0.5s;
+}
+
+.progress-area,
+.controls-list {
+    transition: 0.5s;
+}
+
+
+#video_player .controls .progress-area{
+    width: 100%;
+    height: 5px;
+    margin: auto;
+    background: #f0f0f0;
+    cursor: pointer;
+}
+
+.controls .progress-area .progress-bar{
+    position: relative;
+    width: 0%;
+    /* background: rgb(255, 174, 0); */
+    background-image: linear-gradient(to bottom, #b87ca8, #7e66b1);
+    height: inherit;
+    cursor: pointer;
+}
+
+.controls .progress-area .progress-bar::before{
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(225, 174, 0);
+    background-color: #b87ca8;
+}
+
+.controls .controls-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 97%;
+    height: 46px;
+    margin: 0 auto;
+}
+
+.controls .controls-list .controls-left,
+.controls .controls-list .controls-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls .controls-left .timer{
+    display: inline-block;
+    font-size: 14px;
+    white-space: nowrap;
+    color: #fff;
+    margin-left: 5px;
+    text-align: center;
+}
+
+.controls .icon{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    margin-left: 8px;
+    margin-right: 5px;
+}
+
+.controls .icon .material-icons{
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.fast-rewind,
+.fast-forward {
+    width: 26px;
+    height: 26px;
+    stroke: #fff;
+}
+.controls .icon .material-icons.fast-rewind:active{
+    transition: 0.2s;
+    transform: rotate(-20deg);
+}
+
+.controls .icon .material-icons.fast-forward:active{
+    transition: 0.2s;
+    transform: rotate(20deg);
+}
+
+.controls .icon .volume_range{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0px;
+    height: 3px;
+    background: #fff;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: 0.4s;
+}
+
+.controls .icon .volume_range::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    margin-left: 5px;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #fff;
+    opacity: 0;
+    transition: 0.3s;
+}
+.controls .icon .volume_range::-moz-range-thumb {
+    -webkit-appearance: none;
+    margin-left: 5px;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #fff;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.controls .icon:hover .volume_range{
+    display: inline-block;
+    width: 60px;
+}
+
+.controls .icon:hover .volume_range::-webkit-slider-thumb{
+    opacity: 1;
+    pointer-events: auto;
+    transition: 0.5s;
+}
+.controls .icon:hover .volume_range::-moz-range-thumb {
+    opacity: 1;
+    pointer-events: auto;
+    transition: 0.5s;
+}
+
+/* -----  CHAMP COMMENTAIRE ---- */

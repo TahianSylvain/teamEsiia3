@@ -1,0 +1,62 @@
+
+
+/* --- CAROUSEL --- */
+
+.root_carousel {
+    /* on veut faire bouger carousel_container par rappor à cet element là,
+    donc: */
+    position: relative;
+    /* overflow: hidden; */
+    overflow: visible !important;
+}
+.carousel_item {
+    float: left;
+}
+/* clearfix:
+  (mamerina ny hauteur-n'ny carousel_container) */
+.carousel_container::after {
+    content: '';
+    clear: both;
+    display: table;
+}
+.carousel_container {
+    transition: transform 0.5s;
+    transform: translateX(0);
+}
+
+.carousel_next,
+.carousel_prev {
+    position: absolute;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    border-radius: 50%;
+    top: 50%;
+    margin-top: -20px;
+    right: 0px;
+    box-shadow: 0px 5px 15px -5px #323232;
+    transition: 0.3s;
+}
+.carousel_next:hover,
+.carousel_prev:hover {
+    transform: scale(1.2);
+}
+.carousel_next {
+    right: -20px;
+    background: #fff url(arrow-right-s-line.svg) center center no-repeat;
+}
+.carousel_prev {
+    left: -20px;
+    background: #fff url(arrow-left-s-line.svg) center center no-repeat;
+}
+.hide{
+    transform: scale(0);
+    transition: 0.3s;
+}
+.hide:hover {
+    transform: scale(0);
+}
+.stop_transition {
+    transition: transform 0s !important;
+}

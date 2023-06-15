@@ -1,0 +1,125 @@
+{% extends 'base/home.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'accounts/css/tea_home.css' %}">
+{% endblock %}
+
+{% block script %}
+    <script defer src="{% static 'accounts/js/tea_homee.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="tea_block">
+
+        <main class="courses_container">
+            <div class="course_list_container">
+                <header class="course_header">
+                    <h4>Courses:&nbsp;
+                        <span>All</span>
+                    </h4>
+                    <!-- <button>Add Course</button> -->
+                </header>
+                <div class="course_header_table row">
+                    <span class="col col1">Title</span>
+                    <span class="col col2">Date</span>
+                    <span class="col col3">Hour</span>
+                </div>
+                <div class="course_list">
+                    {% for course in courses %}
+                        <a href="{{ course.url }}" class="row" style="text-decoration: none;">
+                            <span class="col col1">{{ course.title }}</span>
+                            <span class="col col2">{{ course.date }}</span>
+                            <span class="col col3">{{ course.hour }}</span>
+                        </a>
+                        
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+        <aside class="aside_container">
+            <div class="aside_content">
+                <header class="aside_header">
+                    <h4>taught sector</h4>
+                </header>
+                <main class="dept_container">
+                    <div class="dept_content">
+                        <ul>
+                            {% for dept in depts %}
+                                <li>
+                                    <div class="dept" id="{{ dept.slug }}">
+                                        <div class="img" style="background-image: url({{dept.cover_url}});" id="{{ dept.slug }}"></div>
+                                        <div class="dept_desc" id="{{ dept.slug }}">
+                                            <label id="{{ dept.slug }}">{{ dept.name }}</label>
+                                            <p id="{{ dept.slug }}">{{ dept.nbr_stu }}&nbsp;Students</p>
+                                        </div>
+                                    </div>
+                                    <div class="{{ dept.slug }}_container subjects_container">
+                                        <ul class="{{dept.slug}} subjects">
+                                            <!-- <li>blabalbal</li>
+                                            <li>blabalbal</li>
+                                            <li>blabalbal</li> -->
+                                        </ul>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>   
+                    </div>
+                </main>
+            </div>
+            
+        </aside>
+
+        
+        
+
+    </div>
+
+    
+
+{% endblock %}
+
+{% block modal %}
+    <div class="create_course_wrap">
+        <div class="create_course_container">
+            <header class="create_course_header">
+                <h3>Add course</h3>
+            </header>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {# form.as_p #}
+                <div class="input_group course_title">
+                    <label for="course_title">Title</label>
+                    <input type="text" id="course_title" name="title">
+                </div>
+                <div class="input_group course_desc">
+                    <label for="course_desc">Description</label>
+                    <textarea type="text" id="course_desc" name="description"></textarea>
+                </div>
+<!--                <div class="input_group course_subject" style="display: ;">-->
+<!--                    <label for="course_subject">Subjects</label>-->
+<!--                    <input type="text" id="course_subject" name="subject">-->
+<!--                </div>-->
+                <div class="input_group course_video">
+                    <label for="course_video" class="course_video_input">
+                        <div class="label">Video</div>
+                        <div class="input_file">
+                            <p class="result_file">No video selected</p>
+                            <span class="input_file_btn">
+                                <i class="ri-upload-line"></i>
+                                Browse
+                            </span>
+                        </div>
+                    </label>
+                   <input type="file" id="course_video" name="video" style="display: none;">
+                </div>
+                <input type="submit" value="SAVE">
+            </form>
+        </div>
+            <button class="btn_close" id="btn_close">
+                <i class="ri-close-line" id="btn_close"></i>
+            </button>
+    </div>
+{% endblock %}
+
+<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur corrupti neque necessitatibus dolorum optio sed praesentium tempore. Nam, ut possimus. -->

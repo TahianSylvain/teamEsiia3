@@ -1,0 +1,93 @@
+{% extends 'base/home.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'accounts/css/stu_home.css' %}">
+{% endblock %}
+
+{% block script %}
+    <script defer src="{% static 'accounts/js/stu_homeeee.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+    <div class="stu_container">
+        <main class="stu_main">
+            <div class="new_courses">
+                <h4 class="new_course_ahead">New Courses:</h4>
+                <div class="new_course_slide">
+                    {% for course in new_courses %}
+                        <a href="{% url 'course_detail' course.subject.subject_slug course.slug %}">
+                            <div class="new_course_cover"></div>
+                            <div class="new_course_info">
+                                <div class="info_top">
+                                    <h4>{{ course.title }}</h4>
+                                    <span>{{ course.subject }}</span>
+                                </div>
+                                <div class="info_bottom">
+                                    <div class="left_info">
+                                        <span>{{ course.subject.teacher.get_full_name }}</span>
+                                    </div>
+                                    <div class="right_info">
+                                        <span class="date">{{ course.date_upload|date:"d M Y" }}</span>
+                                        <span class="hour">{{ course.date_upload|date:"H:i" }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="course_list_container">
+                <h4>
+                    <span>My Courses:</span>&nbsp;&nbsp;
+                    <span class="subject_title">All</span>
+                </h4>
+                <div class="table_header row">
+                    <span class="col col1">Title</span>
+                    <span class="col col2">Date</span>
+                    <span class="col col3">Hour</span>
+                    <span class="col col4">present</span>
+                </div>
+                <div class="course_list_wrap">
+                    <div class="course_list">
+                        {% for course in courses %}
+                            <a href="{% url 'course_detail' course.subject_slug course.slug %}" class="course row">
+                                <span class="col col1">{{ course.title }}</span>
+                                <span class="col col2">{{ course.date }}</span>
+                                <span class="col col3">{{ course.hour }}</span>
+                                <span class="col col4">
+                                    {% if course.presence %}
+                                        <i class="ri-check-double-line present"></i>
+                                    {% else %}
+                                        <i class="ri-close-line absent"></i>
+                                    {% endif %}
+                                </span>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </main>
+        <aside class="aside_container">
+            <div class="subject_list">
+                <header>
+                    <h4>Subjects:</h4>
+                </header>
+                <main>
+                    <div class="aside_link">
+                        {% for subject in subjects %}
+                            <a class="sbj_btn" href="{% url 'course_list' subject_slug=subject.subject_slug %}" id="{{ subject }}">
+                                <div class="fond" id="{{ subject }}"></div>
+                                <div id="{{ subject }}">
+                                    <h4 id="{{ subject }}">{{ subject }}</h4>
+                                    <span class="subject_prof">{{ subject.teacher.get_full_name }}</span>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </main>
+            </div>
+        </aside>
+    </div>    
+{% endblock %}

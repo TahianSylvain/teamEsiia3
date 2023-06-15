@@ -1,0 +1,178 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LevelMind | Home</title>
+
+    
+    <link rel="shortcut icon" href="{% static 'base/img/lvlind9.webp' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'base/css/basee.css' %}">
+    <link rel="stylesheet" href="{% static 'base/css/homeee.css' %}">
+    <link rel="stylesheet" href="{% static 'base/css/scrollbarrr.css' %}">
+    <link rel="stylesheet" href="{% static 'base/css/carousel2.css' %}">
+    <link rel="stylesheet" href="{% static 'base/font/RemixIcon-2.5.0/fonts/remixicon.css' %}">
+    {% block style %}{% endblock %}
+
+    <script defer src="{% static 'base/js/jquery-3.6.0.min.js' %}"></script>
+    <script defer src="{% static 'base/js/carousel.js' %}"></script>
+    <script defer src="{% static 'base/js/homeee.js' %}"></script>
+    {% block script %}{% endblock %}
+
+</head>
+<body>
+
+    <div class="base_container">
+        <!-- SIDEBAR -->
+    <!-- <aside class="sidebar"> -->
+        <!-- <header class="side_header">
+            <div class="logo">
+                <div class="logo_image">
+                    <img src="static/img/ISPM Logo2.png" width="20px" height="20px"/>
+                </div>
+                <div class="logo_name">
+                    <span>&nbsp;Level<span class="mind">Mind</span></span>
+                </div>
+            </div> <br>
+            <div class="logo">
+                <div class="logo_image">
+                    <img src="{% static 'base/img/lvlind9.png' %}" width="30px" height="30px"/>
+                </div>
+                <div class="logo_name">
+                    <span>&nbsp;Level<span class="mind">Mind</span></span>
+                </div>
+            </div>
+        </header> -->
+        <!-- <nav class="side_nav">
+            <ul>
+                <li>
+                    <a href="">
+                        <i class="bx bx-home"></i>
+                        <span>&nbsp;&nbsp;Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="LevelMind_ESIIA2_N°10;24;25;27;28;37/project/index.html">
+                        <i class="bx bx-category"></i>
+                        <span>&nbsp;&nbsp;Find Courses</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="bx bx-ghost"></i>
+                        <span>&nbsp;&nbsp;Teachers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="bx bx-book"></i>
+                        <span>&nbsp;&nbsp;My Courses</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/home/">
+                        <i class="bx bx-group"></i>
+                        <span>&nbsp;&nbsp;Community</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="bx bx-happy-heart-eyes"></i>
+                        <span>&nbsp;&nbsp;Quiz</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="bx bx-cog"></i>
+                        <span>&nbsp;&nbsp;Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav> -->
+    <!-- </aside> -->
+        <!-- </div> -->
+
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo_img">
+                    <img src="{% static 'base/img/logo-ISPM.jpeg' %}" width="40px" height="40px" alt="">
+                    <!-- <img src="{% static 'base/img/lvlind9.webp' %}" width="40px" height="40px" alt=""> -->
+                </div>
+                <!-- <div class="logo_name">
+                    Level<span>Mind</span>
+                </div> -->
+            </div>
+            <nav>
+                <div class="link">
+                    <div class="home">
+                        <a href="{% url 'home' %}" title="Home">
+                            <i class="ri-home-4-line"></i>
+                        </a>
+                    </div>
+                    <div class="settings">
+                        <a href="{% url 'home' %}" title="Settings">
+                            <i class="ri-settings-line"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="logout">
+                    <a href="{% url 'logout' %}">
+                        <i class="ri-logout-box-line"></i>
+                    </a>
+                </div>
+            </nav>
+            
+        </div>
+
+        <div class="main_container">
+            <div class="topbar">
+                <!-- <div class="logo">
+                    
+                </div> -->
+                
+                <div class="stu_header">
+                    <div class="topbar_container">
+                        {% block back %}
+                        <a href="{% url 'index' %}" class="back">
+                            <i class="ri-arrow-left-line"></i>&nbsp;
+                        </a>
+                        {% endblock %}
+                        
+                        <p>{{ student.dept }}</p>
+                    </div>
+                    <div class="topbar_profile">
+                        <div class="profile_btn">
+                            {% if user.pdp %}
+                                <img src="{{ user.pdp.url }}" alt="" width="34px">
+                            {% elif user.sex == "M" %}
+                                <img src="{% static 'base/img/default/profile-male.jpg' %}" alt="" width="34px">
+                            {% else %}
+                                <img src="{% static 'base/img/default/profile-female.jpg' %}" alt="" width="34px">
+                            {% endif %}
+                            <p>
+                                {{ user }}
+                                <!-- <i id="profil-btn" class="ri-arrow-down-s-fill"></i> -->
+                            </p>
+                        </div>
+                        <div class="card_profile">
+                            <a href="{% url 'logout' %}">Logout</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="main_content">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    {% block modal %}
+    
+    {% endblock %}
+
+</body>
+</html>
