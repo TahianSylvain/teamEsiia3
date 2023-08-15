@@ -1,0 +1,26 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institut list</title>
+</head>
+<body>
+{% block content %}
+<div class="row">
+    {% for institut in instituts %}
+    <div class="col-md-3">
+        <div class="card" style="width: 5rem;">
+            <img src="{{ institut.image.url }}"class="card-img-top" alt="{{ institut.name }}">
+            <div class="card-body">
+                <h5 class="=card-title">{{ institut.name}}</h5>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div.>
+   
+{% endblock %}
+</body>
+</html>

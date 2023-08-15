@@ -18,6 +18,8 @@ from course.models import Attendance, Subject, Course
 # from department.models import Level
 from department.models import Department
 
+from base.models import Institut
+
 
 def homeindex(request):
     depts = Department.objects.all()
@@ -225,3 +227,10 @@ def home(request):
     else:
         return redirect("admin")
     return render(request, template, context=context)
+
+def institut_list(request,*args, **kwargs):
+    institut = Institut.objects.all()
+    context = {
+        'institut':institut
+    }
+    return render(request, 'base/institut.html', context)
