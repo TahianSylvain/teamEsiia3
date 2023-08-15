@@ -229,8 +229,9 @@ def home(request):
     return render(request, template, context=context)
 
 def institut_list(request,*args, **kwargs):
-    institut = Institut.objects.all()
+    instituts = Institut.objects.all() 
+    print(instituts)
     context = {
-        'institut':institut
+        'instituts':instituts
     }
     return render(request, 'base/institut.html', context)
