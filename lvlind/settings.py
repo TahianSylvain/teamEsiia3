@@ -11,17 +11,7 @@ with open('jsonForce.json') as secret_file:
 
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '*',
-    '127.0.0.1',
-    '169.254.138.114',
-    '169.254.242.95',
-    '192.168.137.1',
-    '192.168.43.14',
-    '192.168.248.14',
-    '192.168.19.14',
-]
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -34,6 +24,12 @@ INSTALLED_APPS = [
     'accounts',
     'department',
     'course',
+
+    'mainapp',
+    'channels',
+    'notifications_app',
+    'django_celery_results',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -67,12 +63,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'mainapp.custom_context_processors.notifications',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'lvlind.wsgi.application'
+ASGI_APPLICATION = 'lvlind.asgi.application'
 
 DATABASES = {
     'default': {
@@ -104,13 +103,15 @@ TIME_ZONE = 'Etc/GMT-3'
 
 USE_I18N = True
 
-USE_L10N = False
+USE_L10N = True
 
 USE_TZ = True
 
 DATETIME_FORMAT = "d M Y -- H:m:s"
 
-STATIC_URL = '/static/'
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
@@ -118,6 +119,28 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 LOGIN_URL = 'login'
 
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 AUTH_USER_MODEL = 'accounts.MyUser'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
+
+# CELERY SETTINGS
+CELERY_BROKER_URL = "redis://localhost:6379" #install: redis -v 5.0.10 linux github
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TASK_SERALIZER = "json"
+CELERY_TIMEZONE = "UTC"
+CELERY_RESULTBACKEND = 'django-db'
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
