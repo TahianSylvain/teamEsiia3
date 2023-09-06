@@ -14,22 +14,23 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
+    'channels',
+    'django_celery_results',
+    'django_celery_beat',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'base',
-    'accounts',
-    'department',
-    'course',
 
-    'mainapp',
-    'channels',
-    'notifications_app',
-    'django_celery_results',
-    'django_celery_beat',
+    'base.apps.BaseConfig',
+    'accounts.apps.AccountsConfig',
+    'department.apps.LevelConfig',
+    'course.apps.CourseConfig',
+    'mainapp.apps.MainappConfig',
+    'notifications_app.apps.NotificationsAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,8 +81,6 @@ DATABASES = {
     }
 }
 
-# Password validation   https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -110,7 +109,6 @@ USE_TZ = True
 DATETIME_FORMAT = "d M Y -- H:m:s"
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
@@ -121,7 +119,6 @@ LOGIN_URL = 'login'
 
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 

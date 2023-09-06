@@ -1,11 +1,11 @@
 {% extends 'base/header.html' %}
 {% load static %}
 
-    {% block style %}
-        <link rel="stylesheet" href="{% static 'base/css/indexx.css' %}">
-    {% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'base/css/indexx.css' %}">
+{% endblock %}
 
-    {% block content %}
+{% block content %}
     <main id="formation">
         <div class="categories">
             <div class="cat_header">
@@ -32,8 +32,6 @@
             
         </div>
         </div>
-        
-
     </main>
 
     <footer class="footer" id="contact">
@@ -94,6 +92,4 @@
         </div>
 
     </footer>
-
-        
-    {% endblock %}
+{% endblock %}

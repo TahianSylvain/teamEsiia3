@@ -1,4 +1,3 @@
-
 function _$(elets) { return document.querySelector(elets) }
 function _$$(setElets) { return document.querySelectorAll(setElets) }
 

@@ -86,12 +86,12 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="notifications-dropdown"
                         data-popper-placement="bottom-end"
                         style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(-70px, 42px, 0px);">
-                        
+
                         {% for i in notifications %}
-                            <li class="dropdown-item">{{i.message}}</li>
+                            <li class="dropdown-item">{{i.video.name}}</li>
                             <hr class="dropdown-divider">
                         {% endfor %}
-                        {% comment %} <li class='dropdown-item'>Hello</li> <hr class="dropdown-divider"> {% endcomment %}                        
+
     </ul></li></div></div></nav>
 
     {{ room_name|json_script:"room-name" }}

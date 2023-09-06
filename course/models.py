@@ -2,7 +2,6 @@ from django.db import models
 from django.db.models import SET_NULL
 from django.utils.text import slugify
 from django.utils.timezone import now
-
 from accounts.models import MyUser, Teacher, Student
 from department.models import Department
 

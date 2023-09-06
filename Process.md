@@ -7,7 +7,7 @@ pip:
     django-celery-beat-2.2.0
 
 download & install @github:
-    redis
+    redis at https://redis.io/download/
 
 INSTALLED_APPS: 
     'django_celery_results'
@@ -15,5 +15,5 @@ INSTALLED_APPS:
 
 run:
     runserver 
-    celery -A django_celery_project.celery worker --pool=solo -l info
-    celery -A django_celery_project beat -l INFO
+    celery -A lvlind.celery worker --pool=solo -l info
+    celery -A lvlind beat -l INFO

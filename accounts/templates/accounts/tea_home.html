@@ -18,7 +18,6 @@
                     <h4>Courses:&nbsp;
                         <span>All</span>
                     </h4>
-                    <!-- <button>Add Course</button> -->
                 </header>
                 <div class="course_header_table row">
                     <span class="col col1">Title</span>
@@ -32,7 +31,6 @@
                             <span class="col col2">{{ course.date }}</span>
                             <span class="col col3">{{ course.hour }}</span>
                         </a>
-                        
                     {% endfor %}
                 </div>
             </div>
@@ -48,33 +46,49 @@
                             {% for dept in depts %}
                                 <li>
                                     <div class="dept" id="{{ dept.slug }}">
-                                        <div class="img" style="background-image: url({{dept.cover_url}});" id="{{ dept.slug }}"></div>
+                                        <div class="img" 
+                                            style="background-image: url({{dept.cover_url}});" id="{{ dept.slug }}">
+                                        </div>
                                         <div class="dept_desc" id="{{ dept.slug }}">
                                             <label id="{{ dept.slug }}">{{ dept.name }}</label>
-                                            <p id="{{ dept.slug }}">{{ dept.nbr_stu }}&nbsp;Students</p>
+                                            <p id="{{ dept.slug }}">{{ dept.nbr_stu }}&nbsp;Students
+                                                <h6>New 8 courses</h6>
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="{{ dept.slug }}_container subjects_container">
                                         <ul class="{{dept.slug}} subjects">
-                                            <!-- <li>blabalbal</li>
-                                            <li>blabalbal</li>
-                                            <li>blabalbal</li> -->
                                         </ul>
                                     </div>
                                 </li>
+                                {{ room_name|json_script:"room-name" }}
+                                <script>
+                                    const roomName = JSON.parse(document.getElementById('room-name').textContent);
+                                    const notificationSocket = new WebSocket(
+                                        'ws://'+ window.location.host
+                                        + '/ws/notification/'+roomName+'/'
+                                    );
+                                    
+                                    console.log(notificationSocket);
+                                    
+                                    notificationSocket.onmessage = function(e) {
+                                        const data = JSON.parse(e.data);
+                                        //document.querySelector('#chat-log').value += (data.message + '\n');
+                                        console.log(data);
+                                        //document.getElementById("notifications-dropdown").innerHTML = "<li class='dropdown-item'>" + data + "</li><hr class='dropdown-divider'>" + document.getElementById("notifications-dropdown").innerHTML;
+                                        //document.getElementById("notification-badge").innerHTML = parseInt(document.getElementById("notification-badge").innerHTML) + 1;
+                                    };
+                                    notificationSocket.onclose = function(e) {
+                                        console.error('Chat socket closed unexpectedly');
+                                    };
+                                </script>
                             {% endfor %}
                         </ul>   
                     </div>
                 </main>
             </div>
-            
         </aside>
-
-        
-        
-
     </div>
-
     
 
 {% endblock %}
@@ -87,7 +101,6 @@
             </header>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                {# form.as_p #}
                 <div class="input_group course_title">
                     <label for="course_title">Title</label>
                     <input type="text" id="course_title" name="title">
@@ -96,10 +109,6 @@
                     <label for="course_desc">Description</label>
                     <textarea type="text" id="course_desc" name="description"></textarea>
                 </div>
-<!--                <div class="input_group course_subject" style="display: ;">-->
-<!--                    <label for="course_subject">Subjects</label>-->
-<!--                    <input type="text" id="course_subject" name="subject">-->
-<!--                </div>-->
                 <div class="input_group course_video">
                     <label for="course_video" class="course_video_input">
                         <div class="label">Video</div>

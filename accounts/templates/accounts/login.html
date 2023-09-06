@@ -4,7 +4,6 @@
     {% block style %}
         <link rel="stylesheet" href="{% static 'accounts/css/loginn.css' %}">
     {% endblock %}
-
     {% block home_link %}
         href="{% url 'index' %}"
     {% endblock %}
@@ -21,7 +20,8 @@
         href="{% url 'index' %}#contact"
     {% endblock %}
 
-    {% block header_content %}
+
+{% block header_content %}
     <div class="login">
         <h1>Login</h1>
         <form method="post">
@@ -32,4 +32,4 @@
         </form>
         <p>Don't have an account&nbsp;<a href="{% url 'index' %}#formation">Register</a></p>
     </div>
-    {% endblock %}
+{% endblock %}

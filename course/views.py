@@ -129,8 +129,8 @@ def create_course(request, dept_slug, subject_slug):
     return render(request, "course/create_course.html", {"form": course})
 
 
-# @login_required  # fonction décorateur
-# def display_free_courses(request, module_id):
+#@login_required  # fonction décorateur
+#def display_free_courses(request, module_id):
 #     global commentary
 #     #  stop_recording()
 #     user = request.user

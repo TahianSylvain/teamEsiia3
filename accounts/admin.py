@@ -11,7 +11,6 @@ class MyUserAdmin(admin.ModelAdmin):
         "sex"
     )
     search_fields = ("username", "type", "sex")
-    # autocomplete_fields = ("type", )
 
 
 @admin.register(Student)
