@@ -58,11 +58,14 @@
                 <div class="footer-col">
                     <h4><i class="ri-send-plane-line"></i><span>&nbsp;Write us your point</span><h4>
                     <ul>
-                        <li><input type="text" placeholder=" Name"></li>
-                        <li><input type="text" placeholder=" Téléphone"></li>
-                        <li><input type="text" placeholder=" E-Mail"></li>
-                        <li><textarea name="sms" id="sms" cols="50" rows="5" placeholder="Your point ..."></textarea></li>
-                        <li><input type="submit" value="Submit"></li>
+                        <form action="#messages" id="form">
+                            <li><input type="text"  id="name" placeholder=" Name"></li>
+                            <li><input type="tel"   id="tel" placeholder=" Téléphone"></li>
+                            <li><input type="email" id="mail" placeholder=" E-Mail"></li>
+                            <li><textarea name="message" id="message" cols="50" rows="5" 
+                                placeholder="Your point ..."></textarea></li>
+                            <li><input type="submit" value="Submit"></li>
+                        </form>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -76,7 +79,44 @@
                         </a>
                         <a href="#"><i class="ri-github-fill"></i></a>
                     </div>
+                    <ul id="messages">
+                    </ul>
                 </div>
+                <script type="text/javascript">
+                    const chatSocket = new WebSocket(`ws://${window.location.host}/ws/socket-server/`)
+                    
+                    chatSocket.onmessage=function(event){
+                        let data = JSON.parse(event.data)
+                        if (data.type==='chat'){
+                            let messages = document.getElementById('messages')
+                            let titre = data.mail ? `<a href="mailto:">${data.name}</a>` : `<a href="tel:+${data.tel}">${data.name}</a></h3>`
+                            messages.insertAdjacentHTML('beforeend',
+                                `<li>
+                                    <h3>${titre}</h3>
+                                    <p> ${data.message} </p>
+                                </li>`)
+                        }
+                    }
+
+                    chatSocket.onclose=function(event){
+                        console.log('Something went wrong')   
+                    }
+
+                    let form = document.getElementById('form')
+                    form.addEventListener('submit', (e)=>{
+                        e.preventDefault()
+                        let name = e.target.name.value
+                        let tel = e.target.tel.value
+                        let mail = e.target.mail.value
+                        let message = e.target.message.value
+                        chatSocket.send(JSON.stringify({
+                            "message": message,
+                            "name" : name,
+                            "tel" : tel,
+                            "mail" : mail,
+                        }))
+                    })
+                </script>
             </div>
             
         </div>

@@ -126,7 +126,7 @@ AUTH_USER_MODEL = 'accounts.MyUser'
 
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'BACKEND': 'channels.layers.InMemoryChannelLayer', #'channels_redis.core.RedisChannelLayer' ##AttributeError: 'list' object has no attribute 'rsplit'
         'CONFIG': {
             "hosts": [('127.0.0.1', 6379)],
         },
