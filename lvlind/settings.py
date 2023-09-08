@@ -126,12 +126,17 @@ AUTH_USER_MODEL = 'accounts.MyUser'
 
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer', #'channels_redis.core.RedisChannelLayer' ##AttributeError: 'list' object has no attribute 'rsplit'
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',  # For development/testing
+        'CONFIG': {},
+    },
+    'redis': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',  # For production with Redis
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [('127.0.0.1', 6379)],  # Update with your Redis server details
         },
     },
 }
+
 
 # CELERY SETTINGS
 CELERY_BROKER_URL = "redis://localhost:6379" #install: redis -v 5.0.10 linux github
