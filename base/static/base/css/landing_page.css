@@ -739,3 +739,19 @@ main {
     background-image: linear-gradient(to left,#3452fff0, #ff1053f0);
     border-radius: 5px;
 }
+
+/*   
+.category {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: justify;
+    position: relative; 
+
+.category-card {
+    border-radius: 10px;   
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  
+    padding: 20px;   
+    background-color: #fff; 
+    text-align: center; 
+} */
