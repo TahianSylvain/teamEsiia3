@@ -5,7 +5,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-with open('jsonForce.json') as secret_file:
+with open('jsonReForce.json') as secret_file:
     config = json.load(secret_file)
     SECRET_KEY = config['secret_file']
 
@@ -132,7 +132,7 @@ CHANNEL_LAYERS = {
     'redis': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',  # For production with Redis
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],  # Update with your Redis server details
+            "hosts": [('192.168.43.98', 6379)],  # 192.168.43.98
         },
     },
 }

@@ -1,6 +1,7 @@
 time_zone: UTC+2
     Afrika/Madagascar == 'Asia/Qatar' 
-
+load css: 
+    python manage.py collectstatic
 pip: 
     redis
     django-celery-results-2.1.0
