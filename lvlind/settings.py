@@ -52,6 +52,21 @@ MIDDLEWARE = [
 # AXES_LOGIN_FAILURE_LIMIT = 5
 # AXES_ONLY_USER_FAILURES = True
 
+# REST_FRAMEWORK = {
+    # "DEFAULT_PERMISSION_CLASSES": [
+    #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    # ]
+# }
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    ),
+    # Other settings...
+}
+
 
 ROOT_URLCONF = 'lvlind.urls'
 
