@@ -1,0 +1,43 @@
+Axios is a popular JavaScript library for making HTTP requests from web browsers and Node.js. You don't install Axios using `pip` because it's a JavaScript library, and `pip` is used for installing Python packages. To use Axios in your web application, you typically include it in your HTML file or use a JavaScript package manager like npm or yarn.
+
+Here's how you can include Axios in an HTML file for use in a web browser:
+
+1. **Download Axios:** You can download Axios from a CDN (Content Delivery Network) or include it from a package manager like npm or yarn.
+
+   - **CDN**: Add the following script tag to your HTML file's `<head>` section to include Axios from a CDN:
+
+     ```html
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     ```
+
+   - **npm/yarn**: If you're using npm or yarn for your project, you can install Axios by running the following command in your project's root directory:
+
+     ```bash
+     npm install axios
+     # or
+     yarn add axios
+     ```
+
+   After installation, Axios will be available in your project's node_modules directory.
+
+2. **Using Axios:** Once Axios is included in your project, you can use it to make HTTP requests in your JavaScript code. For example:
+
+   ```javascript
+   // Import Axios if you're using npm/yarn
+   // import axios from 'axios';
+
+   // Make a GET request
+   axios.get('https://api.example.com/data')
+     .then(response => {
+       // Handle the response data
+       console.log(response.data);
+     })
+     .catch(error => {
+       // Handle any errors
+       console.error('An error occurred:', error);
+     });
+   ```
+
+Remember to replace `'https://api.example.com/data'` with the actual API endpoint you want to request.
+
+In summary, you include Axios in your web application by either including it from a CDN in your HTML file or by installing it using npm or yarn if you're using a JavaScript package manager. Once included, you can use Axios to make HTTP requests in your JavaScript code.

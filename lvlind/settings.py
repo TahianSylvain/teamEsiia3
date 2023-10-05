@@ -14,7 +14,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
+    'api',
     'channels',
+    'rest_framework',
     'django_celery_results',
     'django_celery_beat',
 
