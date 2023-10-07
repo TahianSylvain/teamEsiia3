@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from channels.layers import get_channel_layer
 from django.template import RequestContext
+from celery import shared_task
 from asgiref.sync import async_to_sync
 import json
 
@@ -21,3 +22,10 @@ def test(request):
         }
     )
     return HttpResponse("Done")
+
+
+@shared_task(bind=True)
+def test_func(self):
+    for i in range(10):
+        print(i)
+    return 'Done'

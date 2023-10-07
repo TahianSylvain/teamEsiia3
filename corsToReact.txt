@@ -1,7 +1,9 @@
-To install CORS (Cross-Origin Resource Sharing) and Django REST framework (DRF) in a Django project, you can use the Python package manager, pip. Here's how to do it:
+To install CORS (Cross-Origin Resource Sharing) and Django REST framework (DRF) in a Django project, 
+   you can use the Python package manager, pip. Here's how to do it:
 
 1. **Create a Virtual Environment (Optional but Recommended)**:
-   It's a good practice to create a virtual environment for your Django project to manage dependencies. You can create a virtual environment using `venv` or `virtualenv`. Here's an example using `venv`:
+   It's a good practice to create a virtual environment for your Django project to manage dependencies.
+   You can create a virtual environment using `venv` or `virtualenv`. Here's an example using `venv`:
 
    ```bash
    python -m venv myenv
@@ -30,7 +32,8 @@ To install CORS (Cross-Origin Resource Sharing) and Django REST framework (DRF) 
    ```
 
 5. **Add 'rest_framework' and 'corsheaders' to Your Django Project's Settings**:
-   Open your Django project's `settings.py` file and add the following to the `INSTALLED_APPS` and `MIDDLEWARE` settings:
+   Open your Django project's `settings.py` file and add the following to the `INSTALLED_APPS` 
+   and `MIDDLEWARE` settings:
 
    ```python
    INSTALLED_APPS = [
@@ -48,7 +51,8 @@ To install CORS (Cross-Origin Resource Sharing) and Django REST framework (DRF) 
    ```
 
 6. **Configure CORS Settings**:
-   In your `settings.py`, you can configure CORS settings to specify which origins are allowed to access your API. For example, to allow all origins during development, you can use:
+   In your `settings.py`, you can configure CORS settings to specify which origins
+    are allowed to access your API. For example, to allow all origins during development, you can use:
 
    ```python
    CORS_ALLOW_ALL_ORIGINS = True
@@ -57,15 +61,18 @@ To install CORS (Cross-Origin Resource Sharing) and Django REST framework (DRF) 
    For production, it's recommended to specify the allowed origins explicitly.
 
 7. **Run Migrations**:
-   After installing and configuring both DRF and CORS Headers, run migrations to apply the changes to your database:
+   After installing and configuring both DRF and CORS Headers, run migrations to apply the changes 
+   to your database:
 
    ```bash
    python manage.py migrate
    ```
 
-Now, your Django project is set up with Django REST framework and CORS Headers. You can start building your RESTful API using DRF and configure CORS as needed for your project.
+Now, your Django project is set up with Django REST framework and CORS Headers. 
+You can start building your RESTful API using DRF and configure CORS as needed for your project.
 
-If you want to specify a host with a port in Django settings, you can set the `CORS_ALLOWED_ORIGINS` setting in your `settings.py` file. Here's an example of how to specify a host with a port:
+If you want to specify a host with a port in Django settings,
+ you can set the `CORS_ALLOWED_ORIGINS` setting in your `settings.py` file. Here's an example of how to specify a host with a port:
 
 ```python
 # settings.py
@@ -75,6 +82,9 @@ CORS_ALLOWED_ORIGINS = [
 ]
 ```
 
-In the above example, we've specified "http://localhost:8080" as an allowed origin. Replace it with the actual host and port you want to allow access from. This setting restricts cross-origin requests to the specified host and port combination.
+In the above example, we've specified "http://localhost:8080" as an allowed origin.
+ Replace it with the actual host and port you want to allow access from.
+ This setting restricts cross-origin requests to the specified host and port combination.
 
-Remember to make sure that the host and port you specify match the actual location from which you expect requests to come. You can add multiple origins to the `CORS_ALLOWED_ORIGINS` list if you need to allow access from multiple hosts and ports.
+Remember to make sure that the host and port you specify match the actual location from which you expect requests to come. You can add multiple origins to the `CORS_ALLOWED_ORIGINS` list 
+if you need to allow access from multiple hosts and ports.

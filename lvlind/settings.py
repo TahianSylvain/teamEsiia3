@@ -3,9 +3,9 @@ import os.path
 from pathlib import Path
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent 
 
-with open('jsonForce.json') as secret_file:
+with open('jsonReForce.json') as secret_file:
     config = json.load(secret_file)
     SECRET_KEY = config['secret_file']
 
@@ -14,7 +14,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
+    'api',
     'channels',
+    'corsheaders',
+    'rest_framework',
     'django_celery_results',
     'django_celery_beat',
 
@@ -36,12 +39,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+        'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'axes.middleware.AxesMiddleware',
+        # 'axes.middleware.AxesMiddleware',
 ]
 
 # AXES_LOCK_OUT_AT_FAILURE = False
@@ -49,6 +53,16 @@ MIDDLEWARE = [
 # AXES_COOLOFF_TIME = 1
 # AXES_LOGIN_FAILURE_LIMIT = 5
 # AXES_ONLY_USER_FAILURES = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    ),
+    # Other settings...
+}
 
 
 ROOT_URLCONF = 'lvlind.urls'
@@ -64,8 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-                'mainapp.custom_context_processors.notifications',
+                    'mainapp.custom_context_processors.notifications',
             ],
         },
     },
@@ -100,9 +113,9 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Etc/GMT-3'
 
-USE_I18N = True
+USE_I18N = True  # internationalization 
 
-USE_L10N = True
+USE_L10N = True  # localization
 
 USE_TZ = True
 
@@ -117,6 +130,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 LOGIN_URL = 'login'
 
+#SMTP_SERVICE settings
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = True
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ranjalahyandrytahianasylvain@gmail.com'
+EMAIL_HOST_PASSWORD = "dhsbbrbcinkfeuxp " # receive from "App password from gmail"
+DEFAULT_FROM_EMAIL = 'Celery <ranjalahyandrytahianasylvain@gmail.com>'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -132,17 +153,22 @@ CHANNEL_LAYERS = {
     'redis': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',  # For production with Redis
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],  # Update with your Redis server details
+            "hosts": [('192.168.43.98', 6379)],  # 192.168.43.98
         },
     },
 }
 
+#CORS-HEARDER ##Cross-Origin Resourse Sharing
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # REACT-APP
+    #"http://192.42.168.67:3000"
+]
 
 # CELERY SETTINGS
 CELERY_BROKER_URL = "redis://localhost:6379" #install: redis -v 5.0.10 linux github
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_SERALIZER = "json"
-CELERY_TIMEZONE = "UTC"
+CELERY_TIMEZONE = TIME_ZONE #"UTC"
 CELERY_RESULTBACKEND = 'django-db'
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'

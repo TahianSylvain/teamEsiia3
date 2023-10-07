@@ -1,0 +1,179 @@
+@media screen and (max-width: 380px) and (min-width: 360px) {
+    :root {
+      --red: #ff1053;
+      --blue: #192675;
+      --blue_e0: #192675e0;
+      --right_left_padding: 70px;
+    }
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: primary_font;
+    }
+  
+    /* Header */
+    header, header a {
+      color: white;
+      text-decoration: none;
+    }
+  
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 90px;
+      padding: 0px var(--right_left_padding);
+      transition: all 0.5s, top 0.5s 1.9s;
+      z-index: 10000;
+    }
+  
+    .topbar.scroll {
+      height: 60px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0px 0px 23px -15px var(--blue);
+    }
+  
+    .topbar.change_color {
+      background-color: rgba(210, 210, 210, 0.4);
+    }
+  
+    .topbar.change_color nav,
+    .topbar.change_color a,
+    .topbar.change_color .logo_name,
+    .topbar.change_color .menu_btn::before,
+    .topbar.change_color .menu_btn::after,
+    .topbar.change_color .menu_btn {
+      transition: color 0.5s, background 0.5s;
+    }
+  
+    .topbar .logo, .topbar .logo_name, .topbar nav, nav a {
+      color: white;
+      transition: color 0.5s;
+    }
+  
+    .topbar .logo_name span {
+      color: var(--red);
+      font-weight: bold;
+    }
+  
+    .topbar nav a:hover {
+      font-weight: bold;
+    }
+  
+    .topbar nav .link a::after {
+      position: relative;
+      bottom: 2px;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 2px;
+      background-color: var(--red);
+      transform: scaleX(0);
+      transition: transform 0.5s;
+    }
+  
+    .topbar nav .link a.hover::after {
+      transform: scaleX(1);
+      transition: transform 0.3s;
+    }
+  
+    /* ... (continued) */
+    
+    /* Footer */
+    .container {
+      margin: auto;
+      padding: 0px 100px;
+    }
+  
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    .copyright, ul {
+      list-style: none;
+    }
+  
+    .footer {
+      position: relative;
+      background: #3a3c5c;
+      padding: 10px 0 0;
+    }
+  
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 25%;
+      padding: 0 15px;
+    }
+  
+    /* ... (continued) */
+  
+    /* Carousel */
+    .root_carousel, .carousel_item, .carousel_container, .carousel_next, .carousel_prev {
+      position: relative;
+    }
+  
+    .carousel_container::after {
+      content: '';
+      clear: both;
+      display: table;
+    }
+  
+    .carousel_container {
+      transition: transform 0.5s;
+      transform: translateX(0);
+    }
+  
+    .carousel_next, .carousel_prev {
+      position: absolute;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      background-size: 30px 30px;
+      border-radius: 50%;
+      top: 50%;
+      margin-top: -20px;
+      right: 0px;
+      box-shadow: 0px 5px 15px -5px #323232;
+      transition: 0.3s;
+      z-index: 100000;
+    }
+  
+    /* ... (continued) */
+  
+    /* Categories */
+    .categories, .cat_header, .cat_title, .categories_container, .category, .category div, .category span, .category a {
+      color: white;
+    }
+  
+    .categories {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      font-size: 0.9rem;
+    }
+  
+    .cat_title, .category .img, .category a {
+      border-radius: 5px;
+    }
+  
+    .categories_container {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 3rem;
+    }
+  
+    /* ... (continued) */
+  }
+  

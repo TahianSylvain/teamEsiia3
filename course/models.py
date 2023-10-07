@@ -55,6 +55,7 @@ class AdviseFromPeople(models.Model):
         return f'{self.mess}'
 
 
+#----useless-----
 class Attendance(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
     student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)

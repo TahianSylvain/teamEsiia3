@@ -69,7 +69,7 @@ class MyUser(AbstractBaseUser):
     objects = MyUserManager()
 
     def __str__(self):
-        return self.username
+        return self.username 
 
     # def save(self, *args, **kwargs):
     #     if not self.pk:

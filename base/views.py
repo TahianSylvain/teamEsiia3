@@ -25,15 +25,14 @@ def landing_views(request):
             'url': dept.dept_cover.url,
         }
         tab.append(dic)
-    return render(request, 'base/index.html', context={'depts': tab})
+    return render(request, 'base/landing_page.html', context={'depts': tab})
 
 
 @login_required
 def home(request):
-
     global template, context, subject_add_course
     user = get_user(request)
-    subject = Subject.objects.get(id=3) ## get(subject_name=request.GET.get('sbj'))
+    subject = Subject.objects.get(id=3)     ## get(subject_name=request.GET.get('sbj'))
     dept = Department.objects.get(dept_title=subject.dept.dept_title).dept_title
     if user.type == "STUDENT":
         print('student')
