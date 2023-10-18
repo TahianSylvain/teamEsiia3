@@ -18,15 +18,16 @@ INSTALLED_APPS = [
     'channels',
     'corsheaders',
     'rest_framework',
-    'django_celery_results',
+    'rest_framework.authtoken',
     'django_celery_beat',
+    'django_celery_results',
 
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.contenttypes',
 
     'base.apps.BaseConfig',
     'accounts.apps.AccountsConfig',
@@ -55,13 +56,21 @@ MIDDLEWARE = [
 # AXES_ONLY_USER_FAILURES = True
 
 REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    ),
-    'DEFAULT_PARSER_CLASSES': (
-        'rest_framework.parsers.JSONParser',
-    ),
+    ## 'DEFAULT_RENDERER_CLASSES': (
+    ##     'rest_framework.renderers.JSONRenderer',
+    ## ),
+    ## 'DEFAULT_PARSER_CLASSES': (
+    ##     'rest_framework.parsers.JSONParser',
+    ## ),
     # Other settings...
+    # For authorizations
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+    ),
+    'DEFAULT_PERMISSION_CLASSES':(
+        'rest_framework.permissions.IsAuthenticated',
+    )
 }
 
 
