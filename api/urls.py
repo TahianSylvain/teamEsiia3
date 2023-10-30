@@ -2,6 +2,7 @@ from django.urls import path, include
 from .views import UserCreate, prof_api, UserViewSet#, GroupViewSet
 from rest_framework import routers
 
+
 router = routers.DefaultRouter()
 router.register(r'users',  UserViewSet)
 # router.register(r'groups', GroupViewSet)
