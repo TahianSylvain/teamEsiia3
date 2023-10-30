@@ -104,6 +104,7 @@ class MyUser(AbstractBaseUser):
 class Student(MyUser):
     dept = models.ForeignKey(Department, verbose_name="department", on_delete=models.CASCADE, blank=False)
     base_type = MyUser.Type.STUDENT
+    account_id = models.PositiveBigIntegerField(unique_for_year=True, null=True)
     visa = models.IntegerField( null=False, blank=False, default=0)
 
     # objects = StudentManager()
