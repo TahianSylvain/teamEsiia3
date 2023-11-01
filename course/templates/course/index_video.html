@@ -30,7 +30,7 @@
                         <input type="checkbox" name="state" id="attendance_state" >
                     </form>
                     <div id="video_player">
-                        <video src="{{ course.0.video.url }}" id="main-video" type="video/webm" autoplay></video>
+                        <video src="{{ course.0.video.url }}" id="ma-video" type="video/webm" autoplay></video>
                         <div class="progressAreaTime">0:00</div>
                         <div class="controls">
                             <div class="progress-area">
@@ -115,7 +115,7 @@
                             </div>
                             <div class="course_desc">
                                 <h4>{{ course.0.subject|upper }}:&nbsp;<span>{{ course.0.title }}</span></h4>
-                                <!-- <p>{{ course.0.description }}</p> -->
+                                <p>{{ course.0.description }}</p>
                                 <!-- <a class="desc_btn">view more...</a> -->
                                 <label>{{ course.0.date_upload|date:'d M Y --- H:i' }}</label>
                             </div>

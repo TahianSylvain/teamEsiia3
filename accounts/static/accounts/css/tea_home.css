@@ -325,3 +325,7 @@
     transform: scale(1.1);
     background-color: var(--dark_blue);
 }
+
+#ngezabe{
+    display: none;
+}
