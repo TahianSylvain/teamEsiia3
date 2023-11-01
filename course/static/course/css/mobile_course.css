@@ -1,0 +1,92 @@
+.seconder{
+    display: none;
+}
+
+
+@media (max-width: 360px) {
+    .main_container{
+        left:0px;
+    }
+
+    #ngezabe{
+        width: 60px;
+        border-radius: 50%;
+    }
+
+    .topbar{
+        left: 0px;
+        width: 360px;
+        padding:0%;
+    }
+
+    .topbar_container{
+        width: 100%;
+        margin-right: 20px;
+    }
+
+    .stu_header{
+        left:0px;
+        padding-left: 10px;
+    }
+
+
+    .aside_content{
+        height: 300px;
+    }
+
+    .sidebar{
+        display: none;
+        width: 0px;
+        height: 0px;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .main_wrap {
+        order: 1;
+    }
+
+    .card_profile{
+        display: flex;
+    }
+
+    .seconder{
+        display: flexs;
+    }
+
+    .aside_wrap {
+        order: 2;
+    }
+
+    .footer_wrap{
+        height:fit-content;
+        padding: 0px var(--main_padding_lr);
+    }
+    
+    .main_wrapper{
+        height:fit-content;
+    }
+
+    .main_content{
+        padding: unset;
+        height: auto;
+    }
+
+    .base_container{
+        height:fit-content;
+    }
+    
+    .aside_wrap{
+        width: 100%;
+    }
+
+    #ma-video{
+        width: 360px;
+        height: 180px;
+    }
+
+    #makafovony{
+        margin-right: 20px;
+        padding-right: 20px;
+    }
+}
