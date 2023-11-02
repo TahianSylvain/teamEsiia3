@@ -86,21 +86,6 @@ class MyUser(AbstractBaseUser):
         return f'{self.last_name} {self.first_name}'
 
 
-# class StudentManager(MyUserManager, models.Manager):
-#     def create_user(self, username, email, password=None, type=MyUser.Type.STUDENT):
-#         if not email:
-#             raise ValueError("email is required")
-#
-#         user = self.model(
-#             username=username,
-#             email=self.normalize_email(email),
-#         )
-#         user.set_password(password)
-#         user.type=type
-#         user.save(using=self._db)
-#         return user
-
-
 class Student(MyUser):
     dept = models.ForeignKey(Department, verbose_name="department", on_delete=models.CASCADE, blank=False)
     base_type = MyUser.Type.STUDENT

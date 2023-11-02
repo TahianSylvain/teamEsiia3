@@ -6,15 +6,6 @@ from .home_views import student_home, prof_home
 from base.models import Institut
 from course.models import Subject
 
-# from django.views.generic import TemplateView
-# from django.urls import reverse_lazy
-# from django.views.generic import TemplateView
-# from django.contrib.auth.mixins import LoginRequiredMixin
-# from trace import CoverageResults
-# from django.contrib.auth.mixins import LoginRequiredMixin
-# from axes.decorators import axes_dispatch
-# from department.models import Level
-
 
 def landing_views(request):
     depts = Department.objects.all()
