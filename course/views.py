@@ -68,8 +68,6 @@ def course_detail(request, subject_slug, slug):
 
         return JsonResponse({'comment': data})
 
-    print(thread)
-
     if request.user.type == "STUDENT":
         student = Student.objects.get(pk=request.user.pk)
 
@@ -78,7 +76,7 @@ def course_detail(request, subject_slug, slug):
             if request.POST['state'] == 'on':
                 present = Attendance.objects.create(course=course[0], student=student, state=True)
                 present.save()
-                print(present)
+                # print(present)
 
     # if request.user.type == "TEACHER":
     #     teacher = Teacher.objects.get(pk=request.user.pk)

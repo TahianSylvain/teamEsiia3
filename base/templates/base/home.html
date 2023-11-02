@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
     <title>LevelMind | Home</title>
 
+    <style>
+        #ngezabe{
+            display: none;
+        }
+    </style>
     
     <link rel="shortcut icon" href="{% static 'base/img/lvlind9.webp' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'base/css/basee.css' %}">
@@ -54,19 +60,9 @@
 
         <div class="main_container">
             <div class="topbar">
-                <!-- <div class="logo">
-                    
-                </div> -->
-                
                 <div class="stu_header">
                     <div class="topbar_container">
-                        {% block back %}
-                        <a href="{% url 'index' %}" class="back">
-                            <i class="ri-arrow-left-line"></i>&nbsp;
-                        </a>
-                        {% endblock %}
-                        
-                        <p>{{ student.dept }}</p>
+                        <img src="{% static 'base/img/logo-ISPM.jpeg' %}" id="ngezabe" alt="">
                     </div>
                     <div class="topbar_profile">
                         <div class="profile_btn">
@@ -82,10 +78,11 @@
                                 <!-- <i id="profil-btn" class="ri-arrow-down-s-fill"></i> -->
                             </p>
                         </div>
-                        <div class="card_profile">
-                            <a href="{% url 'logout' %}">Logout</a>
-                        </div>
                     </div>
+                    
+                    <a href="{% url 'index' %}" class="back"id="makafovony">
+                        <i class="ri-arrow-left-line"></i>&nbsp;
+                    </a>
                 </div>
 
             </div>

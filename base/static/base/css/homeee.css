@@ -14,6 +14,10 @@ body {
     background-color: var(--background_color);
 }
 
+#ngezabe{
+    display: none;
+}
+
 .base_container {
     position: relative;
     top: 0;
