@@ -140,6 +140,9 @@
                 </div>
                 <div class="footer-col phone_remove">
                     <h4><i class="ri-link-m"></i><span>&nbsp;Keep connected</span></h4>
+                    <div id="messages" >
+
+                    </div>
                     <div class="social-links">
                         <a href="#">
                             <i class="ri-facebook-line"></i>
@@ -149,7 +152,6 @@
                         </a>
                         <a href="https://github.com/TahianSylvain/teamEsiia3/"><i class="ri-github-fill"></i></a>
                     </div>
-                    <ul id="messages" > </ul>
                 </div>
                 <script type="text/javascript">
                     const chatSocket = new WebSocket(`ws://${window.location.host}/ws/socket-server/`)
@@ -158,12 +160,16 @@
                         let data = JSON.parse(event.data)
                         if (data.type==='chat'){
                             let messages = document.getElementById('messages')
-                            let titre = data.mail ? `<a href="mailto:">${data.name}</a>` : `<a href="tel:+${data.tel}">${data.name}</a></h3>`
+                            let titre = data.mail ? 
+                                 `<p href="mailto:"> ${data.name} </p>` :
+                                 `<h2 class="cat_header_title" style="">
+                                     <a href="tel:+${data.tel}" style="font-size:smaller ; color: #ffffff; text-decoration:none"> ${data.name} </a>
+                                 </h2>`
                             messages.insertAdjacentHTML('beforeend',
-                                `<li>
-                                    <h3>${titre}</h3>
-                                    <p> ${data.message} </p>
-                                </li>`)
+                                `<div class="entity" >
+                                    <label>${titre} </label>
+                                    <p>${' ' + data.message} </p>
+                                </div>`)
                         }
                     }
 
