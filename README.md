@@ -9,4 +9,4 @@ prof:
     vavitsara@gmail.com
 password: azer1234
 
-contributors' member: Fiatoa, Nyr, Tahiana
+contributors' member: Fiatoa, Nyr, Tahiana, Meow
