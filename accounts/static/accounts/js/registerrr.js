@@ -80,12 +80,3 @@ function uptdateProgressBar() {
     console.log(scaleValue);
     _$('.progress').style.transform = `scaleX(${scaleValue})`
 }
-
-// document.addEventListener('keyup', e => {
-//     if(e.key == "Enter") {
-//         if
-//     }
-// })
-
-/* ============================================= */
-
