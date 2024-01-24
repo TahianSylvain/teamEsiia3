@@ -63,8 +63,4 @@ $(document).ready(() => {
         automatic: true,
     })
 
-    // document.addEventListener('click', e => {
-    //     console.log(e.target);
-    // })
-
 })
