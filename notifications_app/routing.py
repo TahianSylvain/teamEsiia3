@@ -1,3 +1,4 @@
+import sys, os
 from django.urls import re_path
 from base.consumers import  ChatSocket
 from . import consumers
