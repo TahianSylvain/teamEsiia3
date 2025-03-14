@@ -1,5 +1,9 @@
-# Description
+# LevelMind
+
+
+## Description
 - LevelMind is a e-learning platform.
+
   
 ## Manual 
 - Use Python 3.9.5
@@ -9,12 +13,16 @@
   - For the professor:
     > zafitody@gmail.com
     > vavitsara@gmail.com
-  - Password (For all specified account):
-    > azer1234
+  - Password (For all specified account): `azer1234`
 
-# Contributors (Front-end & Back-end Developer, Lead, Designer)
+## Contributors (Front-end & Back-end Developer, Lead, Designer)
 - [Tahiana Sylvain](https://github.com/TahianSylvain)
 - [Nyr](https://github.com/Manamahefa)
 - [Fiatoa](https://github.com/foulburst)
 - [Micka](https://github.com/ando-micka)
 - [Koloina](https://github.com/koulienathalie)
+- [Josoa](https://github.com/josoavj)
+
+## Others
+
+- LVLMind Mobile App (Beta & Incomplete - Only Prototype): [lvlmindapp](https://github.com/josoavj/lvlmindapp)
